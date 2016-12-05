@@ -59,11 +59,10 @@ public class Heap extends ArrayList<QueueNode> {
 	
 	
 	public QueueItem dequeue(){
-		QueueItem qi = this.get(1).getFirst();
-		if(qi == null){
+		if(this.get(1).size() == 0){
 			dequeueNode();
-			qi = dequeue();
-		} 
+		}
+		QueueItem qi = this.get(1).remove(); 
 		return qi;
 	}
 	
@@ -78,6 +77,20 @@ public class Heap extends ArrayList<QueueNode> {
 		sink(1);
 		
 		return qn;
+	}
+	
+	
+	public int count(){
+		int count = 0;
+		for(int i=1; i<this.size(); i++){
+			count += this.get(i).size();
+		}
+		return count;
+	}
+	
+	
+	public int prioirtyCount(){
+		return this.size() - 1;
 	}
 	
 	
