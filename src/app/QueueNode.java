@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public class QueueNode extends LinkedList<QueueItem> {
 	
+	private static final long serialVersionUID = 1L;
 	public UUID uuid;
 	public Integer priority;
 	
